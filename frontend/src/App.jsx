@@ -56,7 +56,7 @@ function App() {
       <Router>
         <div className="App">
           <Routes>
-            <Route path="/" element={<LandingPage/>} />
+            <Route path="" element={<LandingPage/>} />
             <Route path="/forgot_password" element={<ForgotPassword/>} />
             <Route path="/admin/login" element={<AdminLoginPage />} />
             <Route path="/chat" element= {<ChatComponent roomName="general" />}/>

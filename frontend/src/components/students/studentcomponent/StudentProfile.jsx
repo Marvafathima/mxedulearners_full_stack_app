@@ -123,7 +123,7 @@ const StudentProfile = () => {
         
         toast.success("password updated successfully.login again to continue")
         dispatch(logoutUser())
-        navigate('/landing-page')
+        navigate('/')
        
       } else if (updatePassword.rejected.match(resultAction)) {
         toast.error("Error updating Password.Please try again")

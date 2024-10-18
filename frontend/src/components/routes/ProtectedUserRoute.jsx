@@ -8,11 +8,11 @@ import { getCurrentUserTokens } from '../../utils/auth';
         
       
         if (!tokens || !tokens.accessToken) {
-          return <Navigate to="/landing-page" replace />;
+          return <Navigate to="/" replace />;
         }
       
         if (!allowedRoles.includes(tokens.role)) {
-          return <Navigate to="/landing-page" replace />;
+          return <Navigate to="/" replace />;
         }
       
         return <Outlet />;

@@ -144,7 +144,7 @@ const AdminLoginPage = () => {
          <div className="mt-4 text-center">
           <p className="text-sm">
             Go back to{' '}
-            <Link to="/landing-page" className="text-admin-primary hover:underline">
+            <Link to="/" className="text-admin-primary hover:underline">
               Landing Page
             </Link>
           </p>

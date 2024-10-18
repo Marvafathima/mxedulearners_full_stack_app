@@ -131,7 +131,7 @@ const TutorHome = () => {
         // Reset password fields and show success message
         toast.success("password updated successfully.login again to continue")
         dispatch(logoutUser())
-        navigate('/landing-page')
+        navigate('/')
         // setPasswordData({ old_password: '', new_password: '', confirm_new_password: '' });
         // Optionally, show a success message
       } else if (updatePassword.rejected.match(resultAction)) {

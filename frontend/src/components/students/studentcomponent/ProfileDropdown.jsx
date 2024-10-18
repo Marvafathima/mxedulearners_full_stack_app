@@ -14,7 +14,7 @@ const ProfileDropdown = ({ user }) => {
 
   const handleLogout = () => {
     dispatch(logoutUser());
-    navigate('/landing-page');
+    navigate('/');
   };
 
   return (

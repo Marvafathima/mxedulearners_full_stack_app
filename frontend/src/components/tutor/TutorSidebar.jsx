@@ -55,7 +55,7 @@ const TutorSidebar = ({ user }) => {
 
   const handleLogout = () => {
     dispatch(logoutUser());
-    navigate('/landing-page');
+    navigate('/');
   };
 
   const isActive = (path) => {
