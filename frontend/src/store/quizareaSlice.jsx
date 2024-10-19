@@ -116,7 +116,7 @@ const quizareaSlice = createSlice({
       .addCase(fetchCourseQuizzes.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
-        state.courseQuizzes=action.payload
+        // state.courseQuizzes=action.payload
       })
       .addCase(fetchQuiz.pending, (state) => {
         state.status = 'loading';

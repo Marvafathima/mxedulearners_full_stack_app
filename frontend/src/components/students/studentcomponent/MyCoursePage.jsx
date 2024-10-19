@@ -75,74 +75,7 @@ const MyCoursesPage = () => {
           Course Catalog
         </Button>
 
-        {/* <Grid container spacing={3}>
-          {courses.map((item) => (
-            <Grid item xs={12} key={item.id}>
-              <Card>
-                <CardContent>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={3}>
-                      <CardMedia
-                        component="img"
-                        height="140"
-                        image={getFullImageUrl(item.course?.thumbnail)}
-                        alt={item.course?.name || 'Course thumbnail'}
-                      />
-                    </Grid>
-                    <Grid item xs={12} sm={9}>
-                      <Typography variant="h6" gutterBottom>
-                        {item.course ? item.course.name : 'Course name not available'}
-                      </Typography>
-                      <Typography variant="body2" color="textSecondary" gutterBottom>
-                        Creator: {item.course.user ? item.course.user.username : 'Unknown'}
-                      </Typography>
-                      {item.iscomplete ? (
-                        <Box display="flex" justifyContent="space-between" alignItems="center">
-                          <Typography color="success.main" sx={{ display: 'flex', alignItems: 'center' }}>
-                            <CheckCircle sx={{ mr: 1 }} /> Completed
-                          </Typography>
-                          <Box>
-                            <Button 
-                              variant="contained" 
-                              color="primary"
-                              onClick={() => handleViewDetails(item.course.id)}
-                              sx={{ mr: 1 }}
-                            >
-                              View Details
-                            </Button>
-                            <Button variant="outlined" color="primary">
-                              View Certificate
-                            </Button>
-                          </Box>
-                        </Box>
-                      ) : (
-                        <Box display="flex" justifyContent="space-between" alignItems="center">
-                          <Typography variant="body2">
-                            {item.isstart ? 'In Progress' : 'Not Started'}
-                          </Typography>
-                          <Button 
-                            variant="contained" 
-                            color="primary"
-                            onClick={() => handleViewDetails(item.course.id)}
-                          >
-                            {item.isstart ? 'Continue' : 'Start'}
-                          </Button>
-                        </Box>
-                      )}
-
-                       <Typography variant="body2">
-                            prgresss:{Number(item.progress).toFixed(2)}
-                          </Typography>
-                    </Grid>
-                  </Grid>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
-    </Box>
-  </Layout> */}
+      
    <Grid container spacing={3}>
             {purchasedCourses.map((item) => (
               <Grid item xs={12} key={item.id}>

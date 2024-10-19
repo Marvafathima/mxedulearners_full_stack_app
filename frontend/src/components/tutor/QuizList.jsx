@@ -20,8 +20,8 @@ const QuizList = () => {
       // Return the quiz object with additional fields
       return {
         ...quiz,
-        totalLessons: totalLessons,   // Add totalLessons field
-        points: totalPoints,          // Add points field
+        totalLessons: totalLessons,  
+        points: totalPoints,         
       };
     });
   };
