@@ -90,7 +90,8 @@ const CourseForm = () => {
       }, 2000);
     } catch (error) {
       console.error("Failure:", error);
-      toast.error(`${error}`)
+      navigate('/tutor/courses')
+      toast.error(`error creating form`)
       // Handle error (you might want to set an error state and display it)
     } finally {
       setIsLoading(false);

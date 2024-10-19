@@ -7,7 +7,7 @@ const ChatComponent = ({ roomName }) => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    socketRef.current = new ReconnectingWebSocket(`ws://localhost:8000/ws/chat/${roomName}/`);
+    socketRef.current = new ReconnectingWebSocket(`ws://api.mxedulearners.online/ws/chat/${roomName}/`);
 
     socketRef.current.onmessage = (e) => {
       const data = JSON.parse(e.data);

@@ -13,7 +13,7 @@ export const WebSocketProvider = ({ children }) => {
 
   useEffect(() => {
     if (user) {
-      const newSocket = new WebSocket(`wss://api.mxedulearners.online/ws/user/${user.id}/`);
+      const newSocket = new WebSocket(`ws://api.mxedulearners.online/ws/user/${user.id}/`);
 
       newSocket.onopen = () => {
         console.log('WebSocket connection established');
