@@ -125,8 +125,8 @@
 // export const authUserManagementInstance = createAxiosInstance('http://localhost:8000/user_management');
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8000';
-
+// const BASE_URL = 'http://localhost:8000';
+BASE_URL ='https://api.mxedulearners.online'
 const getTokens = () => {
   const currentUser = localStorage.getItem('current_user');
   if (!currentUser) return null;

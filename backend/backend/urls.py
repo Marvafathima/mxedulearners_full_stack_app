@@ -13,6 +13,7 @@ urlpatterns = [
     path('api/users/cartmanagement/',include('cart.urls')),
     path('api/users/razorpay/',include('razorpay_backend.urls')),
     path('api/users/chat/', include('chat.urls')),
+    
 
     # other paths
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
