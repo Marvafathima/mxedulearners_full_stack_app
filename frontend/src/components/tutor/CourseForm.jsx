@@ -62,60 +62,13 @@ const CourseForm = () => {
   };
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    try {
-      const formData = new FormData();
-  
-      // Append course data
-      Object.keys(courseData).forEach(key => {
-        if (key === 'thumbnail' && courseData[key] instanceof File) {
-          formData.append('thumbnail_file', courseData[key]);
-        } else {
-          formData.append(key, courseData[key]);
-        }
-      });
-  
-      formData.append('user', user.id);
-  
-      // Properly append lesson data
-      lessons.forEach((lesson, index) => {
-        // Append regular lesson fields
-        Object.keys(lesson).forEach(key => {
-          if (key !== 'video' && key !== 'thumbnail') {
-            formData.append(`lessons[${index}][${key}]`, lesson[key]);
-          }
-        });
-        
-        // Handle lesson files separately
-        if (lesson.video instanceof File) {
-          formData.append(`lessons[${index}][video]`, lesson.video);
-        }
-        if (lesson.thumbnail instanceof File) {
-          formData.append(`lessons[${index}][thumbnail]`, lesson.thumbnail);
-        }
-      });
-  
-      await dispatch(addCourse(formData)).unwrap();
-      setIsSuccess(true);
-      setTimeout(() => {
-        navigate('/tutor/courses');
-      }, 2000);
-    } catch (error) {
-      console.error("Failure:", error);
-      navigate('/tutor/courses')
-      toast.error(`error creating form`)
-    } finally {
-      setIsLoading(false);
-    }
-  };
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
   //   setIsLoading(true);
   //   try {
   //     const formData = new FormData();
-
+  
+  //     // Append course data
   //     Object.keys(courseData).forEach(key => {
   //       if (key === 'thumbnail' && courseData[key] instanceof File) {
   //         formData.append('thumbnail_file', courseData[key]);
@@ -123,15 +76,27 @@ const CourseForm = () => {
   //         formData.append(key, courseData[key]);
   //       }
   //     });
-
+  
   //     formData.append('user', user.id);
-
-  //     lessons.forEach((lessonFormData, index) => {
-  //       for (let [key, value] of lessonFormData.entries()) {
-  //         formData.append(`lessons[${index}][${key}]`, value);
+  
+  //     // Properly append lesson data
+  //     lessons.forEach((lesson, index) => {
+  //       // Append regular lesson fields
+  //       Object.keys(lesson).forEach(key => {
+  //         if (key !== 'video' && key !== 'thumbnail') {
+  //           formData.append(`lessons[${index}][${key}]`, lesson[key]);
+  //         }
+  //       });
+        
+  //       // Handle lesson files separately
+  //       if (lesson.video instanceof File) {
+  //         formData.append(`lessons[${index}][video]`, lesson.video);
+  //       }
+  //       if (lesson.thumbnail instanceof File) {
+  //         formData.append(`lessons[${index}][thumbnail]`, lesson.thumbnail);
   //       }
   //     });
-
+  
   //     await dispatch(addCourse(formData)).unwrap();
   //     setIsSuccess(true);
   //     setTimeout(() => {
@@ -141,11 +106,46 @@ const CourseForm = () => {
   //     console.error("Failure:", error);
   //     navigate('/tutor/courses')
   //     toast.error(`error creating form`)
-  //     // Handle error (you might want to set an error state and display it)
   //   } finally {
   //     setIsLoading(false);
   //   }
   // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const formData = new FormData();
+
+      Object.keys(courseData).forEach(key => {
+        if (key === 'thumbnail' && courseData[key] instanceof File) {
+          formData.append('thumbnail_file', courseData[key]);
+        } else {
+          formData.append(key, courseData[key]);
+        }
+      });
+
+      formData.append('user', user.id);
+
+      lessons.forEach((lessonFormData, index) => {
+        for (let [key, value] of lessonFormData.entries()) {
+          formData.append(`lessons[${index}][${key}]`, value);
+        }
+      });
+      console.log("course form data:",formData)
+      await dispatch(addCourse(formData)).unwrap();
+      setIsSuccess(true);
+      setTimeout(() => {
+        navigate('/tutor/courses');
+      }, 2000);
+    } catch (error) {
+      console.error("Failure:", error);
+      navigate('/tutor/courses')
+      toast.error(`error creating form`)
+      // Handle error (you might want to set an error state and display it)
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   if (isLoading) {
     return (
