@@ -18,7 +18,7 @@ export const WebSocketProvider = ({ children }) => {
       newSocket.onopen = () => {
         console.log('WebSocket connection established');
       };
-
+      newSocket.onerror = (error) => console.log('Error:', error);
       newSocket.onmessage = (event) => {
         const data = JSON.parse(event.data);
         if (data.type === 'chat_message') {
