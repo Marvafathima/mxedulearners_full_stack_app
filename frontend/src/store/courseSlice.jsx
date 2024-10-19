@@ -179,7 +179,7 @@ const courseSlice = createSlice({
 
       .addCase(addCourse.rejected, (state, action) => {
         state.status = 'failed';
-        state.error = action.payload;
+        state.error = "error creating course";
       })
       .addCase(deleteCourse.pending, (state) => {
         state.status = 'loading';

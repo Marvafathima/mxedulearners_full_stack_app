@@ -7,6 +7,7 @@ import { addCourse } from '../../store/courseSlice';
 import LessonForm from './LessonForm';
 import TutorSidebar from './TutorSidebar';
 import TutorLayout from './TutorLayout';
+import { toast } from 'react-toastify';
 import { 
   Button, 
   TextField, 
@@ -89,6 +90,7 @@ const CourseForm = () => {
       }, 2000);
     } catch (error) {
       console.error("Failure:", error);
+      toast.error(`${error}`)
       // Handle error (you might want to set an error state and display it)
     } finally {
       setIsLoading(false);
