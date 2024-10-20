@@ -75,7 +75,7 @@ const CourseDetail = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
           <div>
-            <p className="text-gray-600">Created at: {new Date( currentCourse.created_at).toLocaleDateString()}</p>
+            {/* <p className="text-gray-600">Created at: {new Date( currentCourse.created_at).toLocaleDateString()}</p> */}
             <p className="text-gray-600">Creator: { currentCourse.user.username}</p>
           </div>
           <div className="flex items-center">
@@ -109,8 +109,8 @@ const CourseDetail = () => {
           <h2 className="text-2xl font-bold mb-4">Course Features</h2>
           <ul className="list-disc list-inside">
             <li>Total Lessons: { currentCourse.lessons.length}</li>
-            <li>Total Duration: { currentCourse.total_duration} hours</li>
-            <li>Rating: { currentCourse.rating}</li>
+            <li>Total Duration: { currentCourse.total_duration} minutes</li>
+            {/* <li>Rating: { currentCourse.rating}</li> */}
             <li>Points: { currentCourse.points}</li>
           </ul>
         </div>
