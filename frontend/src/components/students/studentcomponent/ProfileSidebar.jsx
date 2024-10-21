@@ -90,7 +90,10 @@ import { ThemeContext } from '../../../contexts/ThemeContext';
 import {
   HomeIcon, UserCircleIcon, AcademicCapIcon,
   ChatBubbleLeftRightIcon, ShoppingCartIcon,
-  ChevronDownIcon, MenuIcon, XIcon
+  ChevronDownIcon,
+  Bars3Icon as MenuIcon,  // Changed this line
+  XMarkIcon as XIcon 
+  //  MenuIcon, XIcon
 } from '@heroicons/react/24/outline';
 
 const SidebarButton = ({ icon: Icon, label, to, children }) => {
