@@ -18,6 +18,7 @@ const StudentProfile = () => {
   const dispatch = useDispatch();
   const navigate=useNavigate();
   const { user, loading, error} = useSelector((state) => state.auth);
+  const { purchasedCourses }=useSelector((state)=>state.courses)
   const [showProfileOptions, setShowProfileOptions] = useState(false);
   const [imageSrc, setImageSrc] = useState(() => getFullImageUrl(user.profile_pic));const [activeForm, setActiveForm] = useState(null);
   const [profileData, setProfileData] = useState({
@@ -42,7 +43,7 @@ const StudentProfile = () => {
  
   const statsData = [
         { icon: <FaRankingStar />, label: 'Rank', value: '10' },
-        { icon: <FaBookOpen />, label: 'Courses Purchased', value: '5' },
+        { icon: <FaBookOpen />, label: 'Courses Purchased', value: `${purchasedCourses.length}` },
         { icon: <FaQuestionCircle />, label: 'Quiz Taken', value: '15' },
         { icon: <FaTrophy />, label: 'Score', value: '85%' },
       ];
