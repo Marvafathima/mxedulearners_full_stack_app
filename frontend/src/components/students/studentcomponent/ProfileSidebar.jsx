@@ -267,7 +267,7 @@ const SidebarButton = ({ icon: Icon, label, to, children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isActive = location.pathname.startsWith(to);
   const { darkMode } = useContext(ThemeContext);
-  const user = useSelector((state) => state.auth);
+  
   const baseClasses = "flex items-center w-full px-4 py-3 rounded-md transition-all duration-200";
   const activeClasses = darkMode
     ? "bg-dark-white/10 text-white font-medium"
@@ -327,7 +327,7 @@ const SubMenuItem = ({ label, to }) => {
 const ProfileSidebar = () => {
   const { darkMode } = useContext(ThemeContext);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  
+  const {user} = useSelector((state) => state.auth);
   const sidebarBg = darkMode ? "bg-dark-gray-100" : "bg-white";
   const borderColor = darkMode ? "border-dark-gray-200" : "border-gray-200";
 
