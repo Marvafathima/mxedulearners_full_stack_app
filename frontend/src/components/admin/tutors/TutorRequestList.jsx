@@ -66,7 +66,7 @@ const TutorRequestList = () => {
       </div>
       ) : (
         <div className="flex flex-col items-center justify-center h-64">
-          <img src='/search_image.svg' className="h-32 w-32 mb-4" />
+          <img src='/search_image.svg' className="h-100 w-100 mb-4" />
           <p className="text-gray-500">No pending tutor requests</p>
         </div>
       )}
