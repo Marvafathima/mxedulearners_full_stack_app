@@ -6,7 +6,13 @@ const Footer = () => {
   const { darkMode } = useContext(ThemeContext);
 
   return (
-    <footer className={`${darkMode ? 'bg-dark-gray-200 text-dark-white' : 'bg-light-blueberry text-white'} py-8 `}>
+    // <footer className={`${darkMode ? 'bg-dark-gray-200 text-dark-white' : 'bg-light-blueberry text-white'} py-8 `}>
+    //   <div className="container mx-auto px-4">
+    //     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    //       <div>
+    <footer className={`${
+      darkMode ? 'bg-dark-gray-200 text-dark-white' : 'bg-light-blueberry text-white'
+    } py-8 mt-auto`}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -38,9 +44,12 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-700">
+        {/* <div className="mt-8 pt-8 border-t border-gray-700">
           <p>&copy; 2024 MXEduLearners. All rights reserved.</p>
-        </div>
+        </div> */}
+        <div className="mt-8 pt-8 border-t border-gray-700">
+              <p>&copy; 2024 MXEduLearners. All rights reserved.</p>
+            </div>
       </div>
     </footer>
   );

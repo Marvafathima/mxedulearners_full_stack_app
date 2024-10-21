@@ -15,6 +15,7 @@ const CourseList = () => {
   const { tutorcourses, status, error } = useSelector(state => state.courses);
  
   const [searchTerm, setSearchTerm] = useState('');
+
   const [currentPage, setCurrentPage] = useState(1);
   const coursesPerPage = 5;
   const user = useSelector(state => state.auth.user); 
