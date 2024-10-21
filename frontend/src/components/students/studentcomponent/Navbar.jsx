@@ -78,7 +78,7 @@ const Navbar = ({user}) => {
         <div className="flex items-center space-x-4">
           <Link to="/student-home" className="text-xl font-bold text-white">MXEduLearners</Link>
           
-           <Menu as="div" className="relative inline-block text-left">
+           {/* <Menu as="div" className="relative inline-block text-left">
              <div>
              <Menu.Button className={`inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ${
                 darkMode 
@@ -118,14 +118,14 @@ const Navbar = ({user}) => {
                 ))}
               </div>
             </Menu.Items>
-          </Menu>
+          </Menu> */}
 
-          <input type="search" placeholder="Search for anything" className={`p-2 rounded ${
+          {/* <input type="search" placeholder="Search for anything" className={`p-2 rounded ${
             darkMode ? 'bg-dark-gray-100 text-dark-white' : 'bg-white text-gray-900'
           }`} />
-        </div>
+        </div> */}
 
-
+</div>
 
 
 
