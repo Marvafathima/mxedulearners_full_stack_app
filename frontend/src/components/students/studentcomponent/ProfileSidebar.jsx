@@ -262,6 +262,7 @@ import {
   Bars3Icon as MenuIcon,
   XMarkIcon as XIcon
 } from '@heroicons/react/24/outline';
+import { useSelector } from 'react-redux';
 
 // Memoized SubMenuItem component to prevent unnecessary re-renders
 const SubMenuItem = React.memo(({ label, to, darkMode, isActive }) => (
@@ -329,7 +330,7 @@ const ProfileSidebar = () => {
   const { darkMode } = useContext(ThemeContext);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const location = useLocation();
-  
+  const {user}=useSelector((state)=>state.auth)
   const sidebarStyles = useMemo(() => ({
     background: darkMode ? '#1F2937' : '#FFFFFF',
     color: darkMode ? '#F3F4F6' : '#1F2937',
@@ -430,8 +431,8 @@ const ProfileSidebar = () => {
               <UserCircleIcon className="w-6 h-6 text-gray-600" />
             </div>
             <div>
-              <p className="text-sm font-medium">Student Name</p>
-              <p className="text-xs text-gray-500">student@email.com</p>
+              <p className="text-sm font-medium">{user?.username}</p>
+              <p className="text-xs text-gray-500">{user?.email}</p>
             </div>
           </div>
         </div>
