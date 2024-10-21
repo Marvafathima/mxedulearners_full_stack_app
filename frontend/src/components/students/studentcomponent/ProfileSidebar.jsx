@@ -260,13 +260,14 @@ import {
   Bars3Icon as MenuIcon,
   XMarkIcon as XIcon
 } from '@heroicons/react/24/outline';
+import { useSelector } from 'react-redux';
 
 const SidebarButton = ({ icon: Icon, label, to, children }) => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const isActive = location.pathname.startsWith(to);
   const { darkMode } = useContext(ThemeContext);
-
+  const user = useSelector((state) => state.auth);
   const baseClasses = "flex items-center w-full px-4 py-3 rounded-md transition-all duration-200";
   const activeClasses = darkMode
     ? "bg-dark-white/10 text-white font-medium"
@@ -395,10 +396,10 @@ const ProfileSidebar = () => {
             </div>
             <div>
               <p className={`text-sm font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>
-                Student Name
+                {user?.username}
               </p>
               <p className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                student@email.com
+                {user?.email}
               </p>
             </div>
           </div>
