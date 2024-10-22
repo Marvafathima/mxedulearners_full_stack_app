@@ -6,52 +6,24 @@ import { fetchTutorCourses } from '../../store/courseSlice';
 import { Link } from 'react-router-dom';
 import { FaEdit, FaTrash, FaEye } from 'react-icons/fa';
 import TutorLayout from './TutorLayout';
-import TutorSidebar from './TutorSidebar';
 import { deleteCourse } from '../../store/courseSlice';
 import Swal from 'sweetalert2';
 const CourseList = () => {
   const { darkMode } = useContext(ThemeContext);
   const dispatch = useDispatch();
-  const { tutorcourses, status, error } = useSelector(state => state.courses);
+  const { tutorcourses, fetchtutorcoursestatus, error } = useSelector(state => state.courses);
  
   const [searchTerm, setSearchTerm] = useState('');
 
   const [currentPage, setCurrentPage] = useState(1);
   const coursesPerPage = 5;
   const user = useSelector(state => state.auth.user); 
-  // useEffect(() => {
-  //   dispatch(fetchTutorCourses());
-  // }, [dispatch]);
-
-  // const handleDelete = (courseId) => {
-  //   Swal.fire({
-  //     title: 'Are you sure?',
-  //     text: "You won't be able to revert this!",
-  //     icon: 'warning',
-  //     showCancelButton: true,
-  //     confirmButtonColor: '#3085d6',
-  //     cancelButtonColor: '#d33',
-  //     confirmButtonText: 'Yes, delete it!',
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       // Dispatch your Redux action to delete the course
-  //       console.log('Deleting course:', courseId);
-  //       dispatch(deleteCourse(courseId));  // Dispatch delete action
-  //       Swal.fire(
-  //         'Deleted!',
-  //         'Your course has been deleted.',
-  //         'success'
-  //       );
-  //       dispatch(fetchTutorCourses());
-  //     }
-  //   });
-  //   console.log('Delete course:', courseId);
-  // };
+  
   useEffect(() => {
-    if (status === 'idle') {
+    if (fetchtutorcoursestatus === 'idle') {
       dispatch(fetchTutorCourses());
     }
-  }, [status, dispatch]);
+  }, [fetchtutorcoursestatus, dispatch]);
   const handleDelete = (courseId) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -93,11 +65,11 @@ const CourseList = () => {
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-  if (status === 'loading') {
+  if (fetchtutorcoursestatus=== 'loading') {
     return <div>Loading...</div>;
   }
 
-  if (status === 'failed') {
+  if (fetchtutorcoursestatus === 'failed') {
     return <div>Error: {error}</div>;
   }
 

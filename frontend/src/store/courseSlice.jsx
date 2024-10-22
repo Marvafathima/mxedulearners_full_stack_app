@@ -164,7 +164,8 @@ const courseSlice = createSlice({
     status: 'idle',
     error: null,
     currentPage: 1,
-    hasMore: true
+    hasMore: true,
+    fetchtutorcoursestatus: 'idle',
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -239,14 +240,14 @@ const courseSlice = createSlice({
         state.error = action.payload?.message || "An error occurred";
       })
       .addCase(fetchTutorCourses.pending, (state) => {
-        state.status = 'loading';
+        state.fetchtutorcoursestatus = 'loading';
       })
       .addCase(fetchTutorCourses.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.fetchtutorcoursestatus = 'succeeded';
         state.tutorcourses = action.payload;
       })
       .addCase(fetchTutorCourses.rejected, (state, action) => {
-        state.status = 'failed';
+        state.fetchtutorcoursestatus = 'failed';
         state.error = action.payload;
       })
       .addCase(fetchCourseDetail.pending, (state) => {
