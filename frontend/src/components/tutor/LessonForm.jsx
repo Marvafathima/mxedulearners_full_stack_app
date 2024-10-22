@@ -98,19 +98,7 @@ const LessonForm = ({ onSave, onCancel, lessonNumber, initialData = null }) => {
           rows={4}
           required
         />
-        {/* <TextField
-          fullWidth
-          label="Duration (HH:MM:SS)"
-          name="duration"
-          value={lessonData.duration}
-          onChange={handleChange}
-          margin="normal"
-          placeholder="00:30:00"
-          inputProps={{ 
-            pattern: "[0-9]{2}:[0-9]{2}:[0-9]{2}",
-          }}
-          required
-        /> */}
+        
         <Box sx={{ mt: 2, mb: 2 }}>
           <input
             type="file"
